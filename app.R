@@ -311,8 +311,6 @@ ui <- dashboardPage(
                   downloadButton("downloadData", "Download")))
               )
 
-
-
       )
     )
   )
@@ -446,9 +444,6 @@ server <- function(input, output){
     })
     )
 
-
-
-
     rvx$tableData <- left_join(newLocation(), newCounts(), by = "Location")
 
     rvavg$tableData <- newCounts() %>%
@@ -559,13 +554,8 @@ server <- function(input, output){
                "has the highest percentage of Males with a Helmet", icon = icon("dashboard"), color = "fuchsia")
     })
 
-
-
-
-
   }
   )
-
 
   observeEvent(input$submit_another, {
     shinyjs::show("form")
@@ -599,8 +589,6 @@ server <- function(input, output){
     )
 
   })
-
-
 
   observeEvent(input$submit_another2, {
     shinyjs::show("surveydata")
@@ -783,8 +771,6 @@ server <- function(input, output){
     selectInput("timeperiod", "Select the time period", choices = createTimeStore())
   })
 
-
-
   observeEvent(input$type, {
 
     if(input$type == "Bar chart") {
@@ -893,9 +879,8 @@ server <- function(input, output){
           labs(x = NULL, y = NULL, title = "People without helmet") +
           theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 15))
       })
-
+      
     }
-
 
   })
 
@@ -914,10 +899,6 @@ server <- function(input, output){
       write.csv(datasetInput(), file, row.names = FALSE)
     }
   )
-
-
-
-
 
 }
 
